@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="filtrar()">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row mb-2 mt-2 ml-2">
+        <label for="nome1" class="col-md-2 form-label">Nome</label>
+        <input type="text" id="nome1" class="col-md-9 form-control" formControlName="nome"/>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3 ml-5 mt-4">
+    <div class="col-md-8">
+      <div class="row ml-3">
+        <select class="form-select" aria-label="Default select example" formControlName="email">
+          <option selected>Selecione</option>
+          <option value="Email">Email</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row mb-2 mt-2 ml-2">
+        <label for="nascimento" class="col-md-3 form-label">Nascimento</label>
+        <input type="date" id="nascimento" class="col-md-5 form-control" formControlName="nascimento"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3 mb-2">
+      <button type="submit" id="filtrar" class="btn btn-outline-primary float-center mr-2">Filtrar</button>
+      <button type="reset" id="limpar" class="btn btn-outline-primary float-center">Limpar</button>
+    </div>
+  </div>
+</form>
+<form>
+  <table class="table table-bordered border-primary">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Nascimento</th>
+        <th scope="col">Nome da mãe</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.nascimento}}</td>
+        <td>{{usuario.nomeMae}}</td>
+        <td><button type="button" id="Excluir" class="btn btn-danger float-center">Excluir</button> </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
